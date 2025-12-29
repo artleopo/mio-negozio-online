@@ -1,72 +1,116 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avviatore U2 12000mAh con compressore</title>
-    <style>
-        :root { --primario: #1F4E78; --secondario: #E74C3C; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Segoe UI, sans-serif; background: #F5F5F5; color: #333; }
-        header { background: linear-gradient(135deg, var(--primario) 0%, #34495e 100%); color: white; padding: 40px 20px; text-align: center; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-        .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 30px; }
-        .product-image { width: 100%; max-width: 500px; margin: 0 auto 20px; display: block; border-radius: 8px; max-height: 400px; object-fit: contain; background: #f9f9f9; }
-        .product-title { font-size: 2em; font-weight: 700; margin-bottom: 10px; color: var(--primario); }
-        .product-price { font-size: 2.5em; font-weight: 700; color: var(--secondario); margin: 20px 0; }
-        .product-category { display: inline-block; background: var(--primario); color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; margin-bottom: 20px; }
-        .product-desc { font-size: 1.1em; color: #555; line-height: 1.6; margin: 20px 0; max-height: 200px; overflow-y: auto; padding: 15px; background: #f9f9f9; border-left: 4px solid var(--secondario); border-radius: 4px; }
-        .buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
-        .btn { flex: 1; min-width: 200px; padding: 15px 30px; border: none; border-radius: 4px; font-weight: 700; font-size: 1.1em; cursor: pointer; text-decoration: none; text-align: center; transition: transform 0.2s; }
-        .btn:hover { transform: scale(1.05); }
-        .btn-ebay { background: #E53238; color: white; }
-        .btn-subito { background: var(--primario); color: white; }
-        .gallery { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
-        .gallery img { max-width: 120px; height: 120px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #ddd; transition: border-color 0.2s; }
-        .gallery img:hover { border-color: var(--secondario); }
-        .gallery img.active { border-color: var(--secondario); }
-        footer { background: var(--primario); color: white; text-align: center; padding: 20px; margin-top: 40px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avviatore U2 12000mAh con compressore</title>
+<style>
+:root { --primario: #1f4e78; --secondario: #e74c3c; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Segoe UI, sans-serif; background: #f5f5f5; color: #333; }
+header { background: linear-gradient(135deg, var(--primario) 0%, #34559e 100%); color: white; padding: 40px 20px; text-align: center; }
+header h1 { font-size: 2.5em; margin-bottom: 10px; }
+header p { font-size: 1.1em; }
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+.product-card { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 30px; margin-bottom: 20px; }
+.product-image { width: 100%; max-width: 500px; margin: 0 auto 20px; display: block; border-radius: 8px; max-height: 400px; object-fit: contain; }
+.product-title { font-size: 2em; font-weight: 700; margin-bottom: 10px; color: var(--primario); }
+.product-price { font-size: 2.5em; color: var(--secondario); margin: 20px 0; }
+.product-category { display: inline-block; background: var(--primario); color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; margin-bottom: 20px; }
+.product-desc { font-size: 1.1em; color: #555; line-height: 1.6; margin: 20px 0; max-height: 200px; overflow-y: auto; padding: 15px; background: #f9f9f9; border-left: 4px solid var(--secondario); }
+.shipping { font-size: 1em; color: #666; margin: 20px 0; padding: 10px; background: #e8f4f8; border-radius: 4px; }
+.gallery { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+.gallery img { max-width: 120px; height: 120px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #ddd; transition: border-color 0.2s; }
+.gallery img.active { border-color: var(--primario); }
+.buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; justify-content: center; }
+.btn { flex: 1; min-width: 200px; padding: 15px 30px; border: none; border-radius: 4px; font-weight: 700; font-size: 1.1em; cursor: pointer; text-align: center; text-decoration: none; transition: scale(1.05); }
+.btn-ebay { background: var(--secondario); color: white; }
+.btn-subito { background: var(--primario); color: white; }
+.contact-section { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 30px; margin-top: 30px; }
+.contact-section h2 { font-size: 1.8em; color: var(--primario); margin-bottom: 20px; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-weight: 700; margin-bottom: 5px; color: #333; }
+.form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: Segoe UI, sans-serif; }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.btn-send { background: var(--primario); color: white; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; width: 100%; }
+.btn-send:hover { opacity: 0.9; }
+footer { background: var(--primario); color: white; padding: 20px; text-align: center; margin-top: 40px; }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Avviatore U2 12000mAh con compressore</h1>
-        <p>Negozio Online - Prodotti di qualità</p>
-    </header>
-    <div class="container">
-        <div class="product-card">
-            <div class="product-category">Elettronica Auto</div>
-            <h2 class="product-title">Avviatore U2 12000mAh con compressore 150 PSI</h2>
-            <img id="mainImage" src="https://ibb.co/pHnYN8V" alt="Avviatore U2" class="product-image">
-            <div class="product-price">€50,00</div>
-            <div class="product-desc">
-                <strong>Descrizione:</strong><br>
-                Avviatore di emergenza portatile modello U2 con compressore d'aria 150 PSI, batteria 12.000 mAh 44,4 Wh, nuovo mai usato. Vendo avviatore di emergenza portatile modello U2 con compressore integrato 150 PSI, batteria 12.000 mAh 44,4 Wh. Nuovo mai usato, imballo originale aperto solo per fare le foto. Completo di cavo di avviamento intelligente, tubo dell'aria, ugelli, cavo USB e custodia rigida. Avvia veicoli 12 V e gonfia pneumatici, bici e altri oggetti gonfiabili, con display per la pressione. Spedizione tracciata o ritiro a mano.
-            </div>
-            <div class="gallery" id="gallery">
-                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=300&h=300&fit=crop alt="Foto 1" onclick="changeImage(this)" class="active">
-                <img src="https://images.unsplash.com/photo-1581092162562-40038f56386d?w=300&h=300&fit=crop alt="Foto 2" onclick="changeImage(this)">
-                <img src="https://images.unsplash.com/photo-1581092541146-0d8eb6d8c5ba?w=300&h=300&fit=crop alt="Foto 3" onclick="changeImage(this)">
-                <img src="https://images.unsplash.com/photo-1609042231676-15742cef63c4?w=300&h=300&fit=crop alt="Foto 4" onclick="changeImage(this)">
-                <img src="https://images.unsplash.com/photo-1589990426153-8f6f969f5728?w=300&h=300&fit=crop alt="Foto 5" onclick="changeImage(this)">
-                <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=300&h=300&fit=crop alt="Foto 6" onclick="changeImage(this)">
-            </div>
-            <div class="buttons">
-                <a href="https://www.ebay.it/itm/168041910302" target="_blank" class="btn btn-ebay">→ Vedi su eBay</a>
-                <a href="https://www.subito.it/accessori-auto/avviatore-auto-u2-12000mah-con-compressore-150-psi-torino-629645826.htm" target="_blank" class="btn btn-subito">→ Vedi su Subito.it</a>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2024 Negozio Online. Tutti i diritti riservati.</p>
-    </footer>
-    <script>
-        function changeImage(img) {
-            const main = document.getElementById('mainImage');
-            main.src = img.src;
-            document.querySelectorAll('.gallery img').forEach(i => i.classList.remove('active'));
-            img.classList.add('active');
-        }
-    </script>
+<header>
+<h1>Avviatore U2 12000mAh con compressore</h1>
+<p>Negozio Online - Prodotti di qualità</p>
+</header>
+<div class="container">
+<div class="product-card">
+<div class="product-category">Elettronica Auto</div>
+<h2 class="product-title">Avviatore U2 12000mAh con compressore 150 PSI</h2>
+<img id="mainImage" src="https://ibb.co/9970cNWr" alt="Avviatore U2" class="product-image">
+<div class="product-price">€50,00</div>
+<div class="shipping"><strong>Spedizione:</strong> €9,00 (Poste delivery standard - eBay Spedizioni)<br><strong>Ritiro:</strong> Gratuito a Torino, zona Pozzo Strada o Piazza Pitagora</div>
+<div>
+<strong>Descrizione:</strong><br>
+<div class="product-desc">
+Avviatore di emergenza portatile modello U2 con compressore d'aria 150 PSI, batteria 12.000 mAh 44,4 Wh, nuovo mai usato. Vendo avviatore di emergenza portatile modello U2 con compressore integrato 150 PSI, batteria 12.000 mAh 44,4 Wh. Nuovo mai usato, imballo originale aperto solo per fare le foto. Completo di cavo di avviamento intelligente, tubo dell'aria, ugelli, cavo USB e custodia rigida. Avvia veicoli 12 V e gonfia pneumatici, bici e altri oggetti gonfiabili, con display per la pressione. Spedizione tracciata o ritiro a mano a Torino zona Pozzo Strada o Piazza Pitagora.
+</div>
+</div>
+<div class="gallery" id="gallery">
+<img src="https://ibb.co/9970cNWr" alt="Foto 1" onclick="changeImage(this)" class="active">
+<img src="https://ibb.co/2007CPj7" alt="Foto 2" onclick="changeImage(this)">
+<img src="https://ibb.co/6cBVQ642" alt="Foto 3" onclick="changeImage(this)">
+<img src="https://ibb.co/fGpSN3GW" alt="Foto 4" onclick="changeImage(this)">
+<img src="https://ibb.co/ycNT802q" alt="Foto 5" onclick="changeImage(this)">
+<img src="https://ibb.co/1tXWM1RR" alt="Foto 6" onclick="changeImage(this)">
+</div>
+<div class="buttons">
+<a href="https://www.ebay.it/itm/168041910302" target="_blank" class="btn btn-ebay">→ Vedi su eBay</a>
+<a href="https://www.subito.it/accessori-auto/avviatore-auto-u2-12000mah-con-compressore-150-psi-torino-629645826.htm" target="_blank" class="btn btn-subito">→ Vedi su Subito.it</a>
+</div>
+</div>
+<div class="contact-section">
+<h2>Contattami per domande</h2>
+<form id="contactForm" onsubmit="handleSubmit(event)">
+<div class="form-group">
+<label for="name">Nome:</label>
+<input type="text" id="name" name="name" required>
+</div>
+<div class="form-group">
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+</div>
+<div class="form-group">
+<label for="phone">Telefono:</label>
+<input type="tel" id="phone" name="phone">
+</div>
+<div class="form-group">
+<label for="message">Messaggio:</label>
+<textarea id="message" name="message" required></textarea>
+</div>
+<button type="submit" class="btn-send">Invia Messaggio</button>
+</form>
+<p style="margin-top: 20px; font-size: 0.95em; color: #666;">Riceverai una risposta entro 24 ore. Email: <strong>artleopo@gmail.com</strong></p>
+</div>
+</div>
+<footer>
+<p>© 2024 Negozio Online. Tutti i diritti riservati.</p>
+</footer>
+<script>
+function changeImage(img) {
+  const main = document.getElementById('mainImage');
+  main.src = img.src;
+  document.querySelectorAll('.gallery img').forEach(i => i.classList.remove('active'));
+  img.classList.add('active');
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const message = document.getElementById('message').value;
+  const mailtoLink = `mailto:artleopo@gmail.com?subject=Richiesta da ${encodeURIComponent(name)}&body=Nome: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ATelefono: ${encodeURIComponent(phone)}%0A%0AMessaggio:%0A${encodeURIComponent(message)}`;
+  window.location.href = mailtoLink;
+}
+</script>
 </body>
 </html>
