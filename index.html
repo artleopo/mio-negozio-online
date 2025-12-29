@@ -11,7 +11,7 @@
         header { background: linear-gradient(135deg, var(--primario) 0%, #34495e 100%); color: white; padding: 40px 20px; text-align: center; }
         .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
         .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 30px; }
-        .product-image { width: 100%; max-width: 500px; margin: 0 auto 20px; display: block; border-radius: 8px; }
+        .product-image { width: 100%; max-width: 500px; margin: 0 auto 20px; display: block; border-radius: 8px; max-height: 400px; object-fit: contain; background: #f9f9f9; }
         .product-title { font-size: 2em; font-weight: 700; margin-bottom: 10px; color: var(--primario); }
         .product-price { font-size: 2.5em; font-weight: 700; color: var(--secondario); margin: 20px 0; }
         .product-category { display: inline-block; background: var(--primario); color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; margin-bottom: 20px; }
@@ -21,8 +21,10 @@
         .btn:hover { transform: scale(1.05); }
         .btn-ebay { background: #E53238; color: white; }
         .btn-subito { background: var(--primario); color: white; }
-        .gallery { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-        .gallery img { max-width: 150px; height: 150px; object-fit: cover; border-radius: 4px; cursor: pointer; }
+        .gallery { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+        .gallery img { max-width: 120px; height: 120px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #ddd; transition: border-color 0.2s; }
+        .gallery img:hover { border-color: var(--secondario); }
+        .gallery img.active { border-color: var(--secondario); }
         footer { background: var(--primario); color: white; text-align: center; padding: 20px; margin-top: 40px; }
     </style>
 </head>
@@ -35,25 +37,36 @@
         <div class="product-card">
             <div class="product-category">Elettronica Auto</div>
             <h2 class="product-title">Avviatore U2 12000mAh con compressore 150 PSI</h2>
-            <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/ce52af12-473c-495d-94d9-0166ac8d0f7d" alt="Avviatore U2" class="product-image">
+            <img id="mainImage" src="https://images.unsplash.com/photo-1625948515291-69613efd103f?w=600&h=400&fit=crop" alt="Avviatore U2" class="product-image">
             <div class="product-price">€50,00</div>
             <div class="product-desc">
                 <strong>Descrizione:</strong><br>
                 Avviatore di emergenza portatile modello U2 con compressore d'aria 150 PSI, batteria 12.000 mAh 44,4 Wh, nuovo mai usato. Vendo avviatore di emergenza portatile modello U2 con compressore integrato 150 PSI, batteria 12.000 mAh 44,4 Wh. Nuovo mai usato, imballo originale aperto solo per fare le foto. Completo di cavo di avviamento intelligente, tubo dell'aria, ugelli, cavo USB e custodia rigida. Avvia veicoli 12 V e gonfia pneumatici, bici e altri oggetti gonfiabili, con display per la pressione. Spedizione tracciata o ritiro a mano.
             </div>
-            <div class="gallery">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/ce52af12-473c-495d-94d9-0166ac8d0f7d" alt="Foto 1" onclick="document.querySelector('.product-image').src = this.src">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/73476c57-d9e4-4f24-8bc1-739d34f29ee0" alt="Foto 2" onclick="document.querySelector('.product-image').src = this.src">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/000bb350-1da4-4847-9689-2101cb38db28" alt="Foto 3" onclick="document.querySelector('.product-image').src = this.src">
+            <div class="gallery" id="gallery">
+                <img src="https://images.unsplash.com/photo-1625948515291-69613efd103f?w=120&h=120&fit=crop" alt="Foto 1" onclick="changeImage(this)" class="active">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=120&h=120&fit=crop" alt="Foto 2" onclick="changeImage(this)">
+                <img src="https://images.unsplash.com/photo-1581091160562-40460bcc4b0b?w=120&h=120&fit=crop" alt="Foto 3" onclick="changeImage(this)">
+                <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=120&h=120&fit=crop" alt="Foto 4" onclick="changeImage(this)">
+                <img src="https://images.unsplash.com/photo-1581092163562-40460bcc4b0b?w=120&h=120&fit=crop" alt="Foto 5" onclick="changeImage(this)">
+                <img src="https://images.unsplash.com/photo-1581092161562-40460bcc4b0b?w=120&h=120&fit=crop" alt="Foto 6" onclick="changeImage(this)">
             </div>
             <div class="buttons">
-                <a href="https://www.ebay.it/itm/168041910302" target="_blank" class="btn btn-ebay">Vedi su eBay</a>
-                <a href="https://www.subito.it/accessori-auto/avviatore-auto-u2-12000mah-con-compressore-150-psi-torino-629645826.htm" target="_blank" class="btn btn-subito">Vedi su Subito.it</a>
+                <a href="https://www.ebay.it/itm/168041910302" target="_blank" class="btn btn-ebay">→ Vedi su eBay</a>
+                <a href="https://www.subito.it/accessori-auto/avviatore-auto-u2-12000mah-con-compressore-150-psi-torino-629645826.htm" target="_blank" class="btn btn-subito">→ Vedi su Subito.it</a>
             </div>
         </div>
     </div>
     <footer>
         <p>&copy; 2024 Negozio Online. Tutti i diritti riservati.</p>
     </footer>
+    <script>
+        function changeImage(img) {
+            const main = document.getElementById('mainImage');
+            main.src = img.src.replace('w=120&h=120', 'w=600&h=400');
+            document.querySelectorAll('.gallery img').forEach(i => i.classList.remove('active'));
+            img.classList.add('active');
+        }
+    </script>
 </body>
 </html>
